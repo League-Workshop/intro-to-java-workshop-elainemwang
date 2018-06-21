@@ -20,27 +20,27 @@ public class RobotTreasureHunt implements KeyEventDispatcher{
 	
 	private void goUp() throws InterruptedException {
 		// 2. Make the robot move up the screen (use setAngle(angle) and microMove(distance))
-		rob.setAngle(90);
-		rob.microMove(100);
+		rob.setAngle(0);
+		rob.microMove(10);
 	}
 
 	private void goDown() throws InterruptedException{
 		// 3. make the robot move down the screen (use setAngle(angle) and microMove(distance))
-		rob.setAngle(270);
-		rob.microMove(100);
+		rob.setAngle(180);
+		rob.microMove(10);
 	}
 
 	private void turnLeft() throws InterruptedException{
 		// 4. Make the robot turn to the left (use setAngle(angle) and microMove(distance))
-		rob.setAngle(180);
-		rob.microMove(100);
+		rob.setAngle(270);
+		rob.microMove(10);
 
 	}
 
 	private void turnRight() throws InterruptedException{
 		// 5. make the robot turn to the right (use setAngle(angle) and microMove(distance))
-		rob.setAngle(0);
-		rob.microMove(100);
+		rob.setAngle(90);
+		rob.microMove(10);
 	}
 
 	private void spaceBarWasPressed() {
@@ -55,6 +55,21 @@ public class RobotTreasureHunt implements KeyEventDispatcher{
 		
 		// 7. If robot is at same location as the little girl
 		//      --make a pop-up tell the robot where to go next
+		if(robotXLocation <= 730 && robotXLocation >= 710 && robotYLocation <= 470 && robotYLocation >= 390) {
+			JOptionPane.showMessageDialog(null, "Talk to the pirate");
+		}
+		
+		else if(robotXLocation <= 640 && robotXLocation >= 540 && robotYLocation <= 480 && robotYLocation >= 290) {
+			JOptionPane.showMessageDialog(null, "Go visit the swamp");
+		}
+		
+		else if(robotXLocation <= 900 && robotXLocation >= 580 && robotYLocation <= 590 && robotYLocation >= 340) {
+			JOptionPane.showMessageDialog(null, "Find the parrot");
+		}
+		
+		else if(robotXLocation <= 680 && robotXLocation >= 580 && robotYLocation <= 190 && robotYLocation >= 110) {
+			treasureFound();
+		}
 		
 		// 8. Give the user subsequent clues at different locations on the image
 		// (pirate robot, swamp, parrots, etc.)
